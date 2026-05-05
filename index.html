@@ -13,14 +13,15 @@
             color: #333;
         }
 
-        /* Background Full Kolase */
+        /* PERBAIKAN DI SINI: Nama file harus BG.JPG */
         .bg-fixed {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
-            background-image: url('BG.jpeg'); 
+            background-image: url('BG.JPG'); 
             background-repeat: repeat;
             background-size: 300px;
             filter: brightness(0.85);
+            background-color: #f0f0f0; /* Warna cadangan */
         }
 
         .container {
@@ -31,11 +32,10 @@
             gap: 20px;
         }
 
-        /* Main Card Transparan - Efek Kaca */
         .main-card {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px); /* Support untuk Safari/iOS */
+            -webkit-backdrop-filter: blur(15px);
             border-radius: 30px;
             padding: 35px 25px;
             max-width: 600px;
@@ -48,7 +48,6 @@
         h1 { font-size: 1.8rem; margin: 10px 0; font-weight: 700; color: #1a1a1a; }
         .sub { font-size: 0.95rem; margin-bottom: 25px; color: #444; }
 
-        /* Area Peta - Link Baru yang Lebih Stabil */
         .map-wrapper {
             position: relative;
             width: 100%;
@@ -66,10 +65,8 @@
             position: absolute;
         }
 
-        /* Jakarta & Intul */
         .intul-loc { top: 50px; left: 8%; text-align: center; position: absolute; }
         
-        /* Container Terbang Adri (Pesawat + Kepala) */
         .adri-flight {
             position: absolute;
             display: flex;
@@ -96,7 +93,6 @@
             margin-top: 2px;
         }
 
-        /* Fun Facts Section */
         .facts-box {
             text-align: left;
             padding: 0 10px;
@@ -106,7 +102,6 @@
         .facts-list { list-style: none; padding: 0; font-size: 0.85rem; color: #333; }
         .facts-list li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; line-height: 1.4; }
 
-        /* Footer Box Terpisah */
         .footer-card {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
@@ -127,33 +122,28 @@
     <div class="bg-fixed"></div>
 
     <div class="container">
-        <!-- Konten Utama -->
         <div class="main-card">
             <h1>Welcome aboard Pak Adri! 🚀</h1>
             <p class="sub">Selamat pagi dan semangat bekerja hari ini!</p>
 
             <div class="map-wrapper">
-                <!-- Jakarta (Intul) -->
                 <div class="intul-loc">
                     <img src="Intul%20Head.png" class="head-icon" style="position:relative;">
                     <span class="city-label">Jakarta</span>
                 </div>
 
-                <!-- Pesawat & Adri Terbang -->
                 <div class="adri-flight">
                     <span class="plane-emoji">✈️</span>
                     <img src="Adri%20Head.png" class="head-icon" style="position:relative; width: 60px; height: 60px;">
                     <span class="city-label" style="position: absolute; bottom: -18px; left: 35px; white-space: nowrap;">Surabaya</span>
                 </div>
 
-                <!-- Ambon Target -->
                 <div style="position: absolute; right: 12%; top: 40%; text-align: center;">
                     <span style="font-size: 2rem;">🏝️</span>
                     <span class="city-label">Ambon</span>
                 </div>
             </div>
 
-            <!-- Fun Facts -->
             <div class="facts-box">
                 <h3>fun facts and random reminders:</h3>
                 <ul class="facts-list">
@@ -164,7 +154,6 @@
             </div>
         </div>
 
-        <!-- Footer -->
         <div class="footer-card">
             Safe flight, kesayangan Intulll 🦦🥳💃🏻
         </div>
