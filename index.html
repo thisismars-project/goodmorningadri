@@ -87,10 +87,11 @@
         }
 
         @keyframes flyToAmbon {
-            0% { transform: translate(0, 0); opacity: 0; }
-            15% { opacity: 1; }
-            /* Mendarat di Ambon (Sudah diperpendek angkanya) */
-            100% { transform: translate(160px, -45px); opacity: 1; }
+    0% { transform: translate(0, 0); opacity: 0; }
+    15% { opacity: 1; }
+    /* Angka 110px adalah hasil 'rem' supaya nggak sampai Papua */
+    100% { transform: translate(110px, -45px); opacity: 1; }
+}
         }
 
         .plane-emoji { font-size: 1.8rem; margin-right: 5px; }
