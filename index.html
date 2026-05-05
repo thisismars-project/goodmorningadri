@@ -19,7 +19,7 @@
             background-image: url('BG.JPG'); 
             background-repeat: repeat;
             background-size: 300px;
-            filter: brightness(0.85);
+            filter: brightness(0.8);
             background-color: #f0f0f0;
         }
 
@@ -32,7 +32,7 @@
         }
 
         .main-card {
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border-radius: 30px;
@@ -47,18 +47,16 @@
         h1 { font-size: 1.8rem; margin: 10px 0; font-weight: 700; color: #1a1a1a; }
         .sub { font-size: 0.95rem; margin-bottom: 25px; color: #444; }
 
-        /* AREA PETA DENGAN LINK BARU */
         .map-wrapper {
             position: relative;
             width: 100%;
             height: 250px;
             margin: 20px 0;
-            background-image: url('https://api.art-and-culture.at/peta-indonesia.png'); 
-            /* Jika link di atas masih tidak muncul, gunakan cadangan ini: */
-            /* background-image: url('https://www.worldatlas.com/upload/32/28/9d/id-01.png'); */
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Indonesia_location_map.svg/1024px-Indonesia_location_map.svg.png');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
+            opacity: 0.85;
         }
 
         .head-icon {
@@ -66,23 +64,23 @@
             object-fit: contain;
         }
 
-        .intul-loc { position: absolute; top: 50px; left: 8%; text-align: center; }
+        .intul-loc { position: absolute; top: 40px; left: 8%; text-align: center; }
         
-        /* Adri Terbang (Tanpa Label Surabaya) */
+        /* FIX: Pakai 'forwards' supaya berhenti di Ambon */
         .adri-flight {
             position: absolute;
             display: flex;
             align-items: center;
             top: 130px; left: 30%;
             z-index: 10;
-            animation: flyPath 7s infinite ease-in-out;
+            animation: flyPath 5s forwards ease-out;
         }
 
+        /* FIX: Opacity 1 di akhir supaya kepalanya nggak hilang */
         @keyframes flyPath {
             0% { transform: translate(0, 0); opacity: 0; }
             15% { opacity: 1; }
-            85% { transform: translate(250px, -50px); opacity: 1; }
-            100% { transform: translate(300px, -70px); opacity: 0; }
+            100% { transform: translate(320px, -70px); opacity: 1; }
         }
 
         .plane-emoji { font-size: 2rem; margin-right: 5px; }
@@ -92,6 +90,7 @@
             font-size: 0.75rem;
             font-weight: 700;
             color: #222;
+            margin-top: 2px;
         }
 
         .facts-box {
@@ -128,24 +127,20 @@
             <p class="sub">Selamat pagi dan semangat bekerja hari ini!</p>
 
             <div class="map-wrapper">
-                <!-- Jakarta -->
                 <div class="intul-loc">
                     <img src="Intul%20Head.png" class="head-icon">
                     <span class="city-label">Jakarta</span>
                 </div>
 
-                <!-- Adri Terbang -->
                 <div class="adri-flight">
                     <span class="plane-emoji">✈️</span>
                     <img src="Adri%20Head.png" class="head-icon" style="width: 60px; height: 60px;">
                 </div>
 
-                <!-- Surabaya Diam -->
-                <div style="position: absolute; top: 180px; left: 35%; text-align: center;">
+                <div style="position: absolute; top: 190px; left: 35%; text-align: center;">
                     <span class="city-label">Surabaya</span>
                 </div>
 
-                <!-- Ambon Target -->
                 <div style="position: absolute; right: 12%; top: 40%; text-align: center;">
                     <span style="font-size: 2rem;">🏝️</span>
                     <span class="city-label">Ambon</span>
