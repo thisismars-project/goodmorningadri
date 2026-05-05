@@ -47,57 +47,58 @@
         h1 { font-size: 1.8rem; margin: 10px 0; font-weight: 700; color: #1a1a1a; }
         .sub { font-size: 0.95rem; margin-bottom: 25px; color: #444; }
 
-        /* AREA PETA DENGAN LINK BARU */
+        /* AREA PETA: Gunakan file PETA.png yang kamu upload */
         .map-wrapper {
             position: relative;
             width: 100%;
-            height: 300px;
+            height: 250px;
             margin: 20px 0;
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Indonesia_location_map_blank.svg/1024px-Indonesia_location_map_blank.svg.png');
+            background-image: url('PETA.png'); /* Pastikan nama file sesuai di GitHub */
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
         }
 
         .head-icon {
-            width: 65px; height: 65px;
+            width: 60px; height: 60px;
             object-fit: contain;
         }
 
-        /* Hanya Kepala Intan yang Goyang */
-        .intul-head-only {
+        /* Hanya kepala Intan yang goyang */
+        .intul-head-animate {
             animation: happyDance 2s infinite ease-in-out;
         }
 
         @keyframes happyDance {
-            0%, 100% { transform: rotate(-5deg) translateY(0); }
-            50% { transform: rotate(5deg) translateY(-5px); }
+            0%, 100% { transform: rotate(-8deg); }
+            50% { transform: rotate(8deg) translateY(-5px); }
         }
         
-        /* Lokasi Jakarta (Tulisan tidak goyang) */
-        .jakarta-area { position: absolute; top: 70px; left: 8%; text-align: center; }
+        /* Posisi Jakarta di Peta Baru */
+        .jakarta-area { position: absolute; top: 110px; left: 18%; text-align: center; }
 
-        /* Adri Terbang & Berhenti (Sudah dipendekkan ke 230px) */
+        /* Adri Terbang & Berhenti Pas di Ambon */
         .adri-flight {
             position: absolute;
             display: flex;
             align-items: center;
-            top: 140px; left: 30%;
+            top: 155px; left: 32%; /* Start Surabaya */
             z-index: 10;
-            animation: flyPath 5s forwards ease-out;
+            animation: flyToAmbon 5s forwards ease-out;
         }
 
-        @keyframes flyPath {
+        @keyframes flyToAmbon {
             0% { transform: translate(0, 0); opacity: 0; }
             15% { opacity: 1; }
-            100% { transform: translate(230px, -40px); opacity: 1; }
+            /* Koordinat mendarat di pulau kecil Ambon pada peta */
+            100% { transform: translate(215px, -45px); opacity: 1; }
         }
 
-        .plane-emoji { font-size: 2rem; margin-right: 5px; }
+        .plane-emoji { font-size: 1.8rem; margin-right: 5px; }
 
         .city-label {
             display: block;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 700;
             color: #222;
             margin-top: 2px;
@@ -108,7 +109,7 @@
             padding: 0 10px;
             margin-top: 25px;
         }
-        .facts-box h3 { font-size: 0.95rem; margin-bottom: 12px; font-weight: 700; }
+        .facts-box h3 { font-size: 0.9rem; margin-bottom: 12px; font-weight: 700; }
         .facts-list { list-style: none; padding: 0; font-size: 0.85rem; color: #333; }
         .facts-list li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; line-height: 1.4; }
 
@@ -137,26 +138,26 @@
             <p class="sub">Selamat pagi dan semangat bekerja hari ini!</p>
 
             <div class="map-wrapper">
-                <!-- Jakarta Area -->
+                <!-- Jakarta -->
                 <div class="jakarta-area">
-                    <img src="Intul%20Head.png" class="head-icon intul-head-only">
+                    <img src="Intul%20Head.png" class="head-icon intul-head-animate">
                     <span class="city-label">Jakarta</span>
                 </div>
 
-                <!-- Adri Terbang & Berhenti -->
+                <!-- Adri Terbang -->
                 <div class="adri-flight">
                     <span class="plane-emoji">✈️</span>
-                    <img src="Adri%20Head.png" class="head-icon" style="width: 60px; height: 60px;">
+                    <img src="Adri%20Head.png" class="head-icon">
                 </div>
 
                 <!-- Surabaya Diam -->
-                <div style="position: absolute; top: 200px; left: 35%; text-align: center;">
+                <div style="position: absolute; top: 195px; left: 35%; text-align: center;">
                     <span class="city-label">Surabaya</span>
                 </div>
 
                 <!-- Ambon Target -->
-                <div style="position: absolute; right: 20%; top: 40%; text-align: center;">
-                    <span style="font-size: 2.5rem;">🏝️</span>
+                <div style="position: absolute; right: 18%; top: 48%; text-align: center;">
+                    <span style="font-size: 2rem;">🏝️</span>
                     <span class="city-label">Ambon</span>
                 </div>
             </div>
