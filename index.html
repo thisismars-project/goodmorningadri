@@ -19,27 +19,27 @@
             background-image: url('BG.jpeg'); 
             background-repeat: repeat;
             background-size: 300px;
-            filter: blur(4px) brightness(0.85);
+            filter: blur(4px) brightness(0.8);
         }
 
         .container { display: flex; flex-direction: column; align-items: center; padding: 40px 20px; }
 
+        /* Card Dibuat Sangat Transparan (0.3) agar BG terlihat jelas */
         .main-card {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.3); 
+            backdrop-filter: blur(12px);
             border-radius: 30px;
             padding: 40px;
             max-width: 650px;
             width: 100%;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        h1 { font-family: var(--font-judul); font-size: 2.5rem; color: #222; margin: 0; }
-        .sub { font-family: var(--font-subjudul); color: #444; font-size: 1.1rem; margin-bottom: 20px; }
+        h1 { font-family: var(--font-judul); font-size: 2.5rem; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); margin: 0; }
+        .sub { font-family: var(--font-subjudul); color: #fff; font-size: 1.1rem; margin-bottom: 20px; }
 
-        /* Map Section dengan Background Peta Indonesia */
         .map-area {
             position: relative;
             background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Indonesia_location_map.svg/1280px-Indonesia_location_map.svg.png');
@@ -50,18 +50,17 @@
             margin: 20px 0;
             overflow: hidden;
             border-radius: 20px;
-            /* Membuat peta sedikit transparan agar tidak nabrak background utama */
-            opacity: 0.9;
         }
 
-        .head {
-            width: 70px; height: 70px;
-            position: absolute;
-            object-fit: cover;
+        /* Perbaikan Kepala: object-fit contain agar TIDAK GEPENG */
+        .head-img {
+            width: 80px; height: 80px;
+            object-fit: contain; /* Kunci agar tidak gepeng */
             z-index: 5;
         }
 
-        .intul-in-jakarta {
+        .intul-head {
+            position: absolute;
             top: 130px; left: 10%;
             animation: bobble 2s infinite ease-in-out;
         }
@@ -71,57 +70,60 @@
             50% { transform: translateY(-8px) rotate(3deg); }
         }
 
-        .flight-container {
+        /* Container Terbang Adri + Pesawat */
+        .flight-path {
             position: absolute;
             display: flex;
             align-items: center;
-            /* Start Surabaya */
             top: 200px; left: 25%;
             z-index: 6;
             animation: flyToAmbon 8s infinite linear;
         }
 
-        .adri-head {
-            width: 65px; height: 65px;
-            animation: moveWithPlane 2s infinite ease-in-out;
+        .adri-head-fly {
+            width: 70px; height: 70px;
+            object-fit: contain; /* Kunci agar tidak gepeng */
+            animation: rotateHead 2s infinite ease-in-out;
         }
 
-        @keyframes moveWithPlane {
-            0%, 100% { transform: scale(1) rotate(-5deg); }
-            50% { transform: scale(1.05) rotate(5deg); }
+        @keyframes rotateHead {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
         }
 
-        .plane-icon { font-size: 2.2rem; margin-right: 5px; filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3)); }
+        .plane-icon { font-size: 2.5rem; margin-right: 5px; }
 
         @keyframes flyToAmbon {
-            0% { transform: translate(0,0) rotate(0deg); opacity: 0; }
+            0% { transform: translate(0,0); opacity: 0; }
             10% { opacity: 1; }
-            85% { transform: translate(350px, -60px) rotate(-10deg); opacity: 1; }
-            100% { transform: translate(400px, -80px) rotate(-10deg); opacity: 0; }
+            85% { transform: translate(350px, -70px); opacity: 1; }
+            100% { transform: translate(400px, -90px); opacity: 0; }
         }
 
         .label {
             position: absolute;
-            background: rgba(0,0,0,0.7); color: #fff;
+            background: rgba(0,0,0,0.5); color: #fff;
             padding: 2px 8px; border-radius: 8px; font-size: 0.7rem; font-weight: bold;
             z-index: 4;
         }
 
         .facts {
             text-align: left;
-            background: rgba(255,255,255,0.4);
+            background: rgba(255, 255, 255, 0.2);
             padding: 20px; border-radius: 15px;
             margin-top: 20px;
+            color: #fff;
         }
 
-        .facts h3 { font-family: var(--font-judul); color: #d35400; margin: 0 0 10px 0; }
+        .facts h3 { font-family: var(--font-judul); color: #fff; margin: 0 0 10px 0; }
         .facts ul { list-style: none; padding: 0; margin: 0; }
-        .facts li { margin: 10px 0; font-size: 1rem; color: #222; font-weight: 500; }
+        .facts li { margin: 10px 0; font-size: 1rem; font-weight: 500; }
 
         .footer {
             font-family: var(--font-subjudul);
-            font-size: 1.4rem; color: #c0392b;
+            font-size: 1.4rem; color: #fff;
             margin-top: 30px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
     </style>
 </head>
@@ -136,13 +138,13 @@
 
             <div class="map-area">
                 <!-- Jakarta -->
-                <img src="Intul%20Head.png" class="head intul-in-jakarta" alt="Intul">
+                <img src="Intul%20Head.png" class="head-img intul-head" alt="Intul">
                 <span class="label" style="top: 210px; left: 10%;">Jakarta</span>
 
                 <!-- Surabaya to Ambon -->
-                <div class="flight-container">
+                <div class="flight-path">
                     <span class="plane-icon">✈️</span>
-                    <img src="Adri%20Head.png" class="adri-head" alt="Adri">
+                    <img src="Adri%20Head.png" class="head-img adri-head-fly" alt="Adri">
                 </div>
                 
                 <span class="label" style="top: 280px; left: 28%;">Surabaya</span>
