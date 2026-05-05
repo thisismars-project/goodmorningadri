@@ -4,126 +4,132 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome Aboard Pak Adri! 🚀</title>
-    <link href="https://fonts.googleapis.com/css2?family=Spicy+Rice&family=Sigmar&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --font-judul: 'Spicy Rice', serif;
-            --font-subjudul: 'Sigmar', sans-serif;
+        * { box-sizing: border-box; }
+        body, html { 
+            margin: 0; padding: 0; min-height: 100vh; 
+            font-family: 'Poppins', sans-serif;
+            color: #333;
         }
 
-        body, html { margin: 0; padding: 0; min-height: 100vh; font-family: sans-serif; }
-
+        /* Background Full Kolase */
         .bg-fixed {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
             background-image: url('BG.jpeg'); 
             background-repeat: repeat;
             background-size: 300px;
-            filter: blur(4px) brightness(0.8);
+            filter: brightness(0.9);
         }
 
-        .container { display: flex; flex-direction: column; align-items: center; padding: 40px 20px; }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            gap: 15px;
+        }
 
-        /* Card Dibuat Sangat Transparan (0.3) agar BG terlihat jelas */
+        /* Navigasi Atas */
+        .nav-bar {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            width: 100%;
+            max-width: 650px;
+            padding: 12px 30px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Main Card Transparan */
         .main-card {
-            background: rgba(255, 255, 255, 0.3); 
-            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(15px);
             border-radius: 30px;
-            padding: 40px;
+            padding: 30px;
             max-width: 650px;
             width: 100%;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
         }
 
-        h1 { font-family: var(--font-judul); font-size: 2.5rem; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); margin: 0; }
-        .sub { font-family: var(--font-subjudul); color: #fff; font-size: 1.1rem; margin-bottom: 20px; }
+        h1 { font-size: 2rem; margin: 10px 0; font-weight: 700; }
+        .sub { font-size: 1rem; margin-bottom: 20px; font-weight: 500; }
 
-        .map-area {
+        /* Area Peta - Menggunakan Gambar Peta Hijau */
+        .map-wrapper {
             position: relative;
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Indonesia_location_map.svg/1280px-Indonesia_location_map.svg.png');
+            width: 100%;
+            height: 280px;
+            margin: 20px 0;
+            background-image: url('https://i.ibb.co/L6vM8pY/indonesia-map-green.png'); /* Ilustrasi peta hijau mirip referensi */
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            height: 350px;
-            margin: 20px 0;
-            overflow: hidden;
-            border-radius: 20px;
         }
 
-        /* Perbaikan Kepala: object-fit contain agar TIDAK GEPENG */
-        .head-img {
-            width: 80px; height: 80px;
-            object-fit: contain; /* Kunci agar tidak gepeng */
-            z-index: 5;
-        }
-
-        .intul-head {
+        /* Styling Kepala Tanpa Background/Border */
+        .head-icon {
+            width: 70px; height: 70px;
+            object-fit: contain;
             position: absolute;
-            top: 130px; left: 10%;
-            animation: bobble 2s infinite ease-in-out;
         }
 
-        @keyframes bobble {
-            0%, 100% { transform: translateY(0) rotate(-3deg); }
-            50% { transform: translateY(-8px) rotate(3deg); }
-        }
-
-        /* Container Terbang Adri + Pesawat */
-        .flight-path {
+        /* Jakarta & Intul */
+        .intul-loc { top: 70px; left: 15%; text-align: center; }
+        
+        /* Container Terbang Adri (Pesawat + Kepala) */
+        .adri-flight {
             position: absolute;
             display: flex;
             align-items: center;
-            top: 200px; left: 25%;
-            z-index: 6;
-            animation: flyToAmbon 8s infinite linear;
+            top: 130px; left: 35%;
+            z-index: 10;
+            animation: flyPath 8s infinite ease-in-out;
         }
 
-        .adri-head-fly {
-            width: 70px; height: 70px;
-            object-fit: contain; /* Kunci agar tidak gepeng */
-            animation: rotateHead 2s infinite ease-in-out;
+        @keyframes flyPath {
+            0% { transform: translate(0, 0); opacity: 0; }
+            15% { opacity: 1; }
+            85% { transform: translate(250px, -40px); opacity: 1; }
+            100% { transform: translate(300px, -60px); opacity: 0; }
         }
 
-        @keyframes rotateHead {
-            0%, 100% { transform: rotate(-5deg); }
-            50% { transform: rotate(5deg); }
+        .plane-img { width: 40px; margin-right: 5px; }
+
+        /* Label Kota Kecil */
+        .city-label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-top: -5px;
         }
 
-        .plane-icon { font-size: 2.5rem; margin-right: 5px; }
-
-        @keyframes flyToAmbon {
-            0% { transform: translate(0,0); opacity: 0; }
-            10% { opacity: 1; }
-            85% { transform: translate(350px, -70px); opacity: 1; }
-            100% { transform: translate(400px, -90px); opacity: 0; }
-        }
-
-        .label {
-            position: absolute;
-            background: rgba(0,0,0,0.5); color: #fff;
-            padding: 2px 8px; border-radius: 8px; font-size: 0.7rem; font-weight: bold;
-            z-index: 4;
-        }
-
-        .facts {
+        /* Fun Facts Section */
+        .facts-box {
             text-align: left;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 20px; border-radius: 15px;
+            padding: 0 20px;
             margin-top: 20px;
-            color: #fff;
         }
+        .facts-box h3 { font-size: 1rem; margin-bottom: 10px; }
+        .facts-list { list-style: none; padding: 0; font-size: 0.9rem; line-height: 1.6; }
+        .facts-list li { margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
 
-        .facts h3 { font-family: var(--font-judul); color: #fff; margin: 0 0 10px 0; }
-        .facts ul { list-style: none; padding: 0; margin: 0; }
-        .facts li { margin: 10px 0; font-size: 1rem; font-weight: 500; }
-
-        .footer {
-            font-family: var(--font-subjudul);
-            font-size: 1.4rem; color: #fff;
-            margin-top: 30px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        /* Footer Box Terpisah */
+        .footer-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            width: 100%;
+            max-width: 650px;
+            padding: 15px;
+            border-radius: 20px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
         }
     </style>
 </head>
@@ -132,40 +138,54 @@
     <div class="bg-fixed"></div>
 
     <div class="container">
+        <!-- Navigasi -->
+        <div class="nav-bar">
+            <span>Home</span>
+            <span>Gallery</span>
+            <span>Flights</span>
+            <span>About Us</span>
+        </div>
+
+        <!-- Konten Utama -->
         <div class="main-card">
             <h1>Welcome aboard Pak Adri! 🚀</h1>
-            <div class="sub">Selamat pagi dan semangat bekerja hari ini!</div>
+            <p class="sub">Selamat pagi dan semangat bekerja hari ini!</p>
 
-            <div class="map-area">
-                <!-- Jakarta -->
-                <img src="Intul%20Head.png" class="head-img intul-head" alt="Intul">
-                <span class="label" style="top: 210px; left: 10%;">Jakarta</span>
-
-                <!-- Surabaya to Ambon -->
-                <div class="flight-path">
-                    <span class="plane-icon">✈️</span>
-                    <img src="Adri%20Head.png" class="head-img adri-head-fly" alt="Adri">
+            <div class="map-wrapper">
+                <!-- Jakarta (Intul) -->
+                <div class="intul-loc">
+                    <img src="Intul%20Head.png" class="head-icon" style="position:relative;">
+                    <span class="city-label">Jakarta</span>
                 </div>
-                
-                <span class="label" style="top: 280px; left: 28%;">Surabaya</span>
-                
+
+                <!-- Pesawat & Adri Terbang -->
+                <div class="adri-flight">
+                    <img src="https://i.ibb.co/Vmq9LzX/plane-icon.png" class="plane-img">
+                    <img src="Adri%20Head.png" class="head-icon" style="position:relative; width: 60px; height: 60px;">
+                    <span class="city-label" style="position: absolute; bottom: -15px; width: 100px; left: 30px;">Surabaya</span>
+                </div>
+
                 <!-- Ambon Target -->
-                <div style="position: absolute; right: 15%; top: 40%; font-size: 2.5rem; z-index: 4;">🏝️</div>
-                <span class="label" style="top: 180px; right: 16%;">Ambon</span>
+                <div style="position: absolute; right: 15%; top: 45%; text-align: center;">
+                    <span style="font-size: 2rem;">🏝️</span>
+                    <span class="city-label">Ambon</span>
+                </div>
             </div>
 
-            <div class="facts">
-                <h3>Just some fun facts & reminders:</h3>
-                <ul>
-                    <li>✨ Today marks 157 days kita bersama! Wow! You've survived <strong>WKWK</strong></li>
-                    <li>❤️ I still love you the same</li>
-                    <li>🔥 ..maybe even moreee ❤️</li>
+            <!-- Fun Facts -->
+            <div class="facts-box">
+                <h3>fun facts and random reminders:</h3>
+                <ul class="facts-list">
+                    <li>📅 - Today marks 157 days kita bersama! Wow! You've survived WKWK</li>
+                    <li>🤌🏻 - I still love you the same</li>
+                    <li>💬 - ...maybe even moreee ❤️</li>
                 </ul>
             </div>
+        </div>
 
-            <div class="footer">
-                Safe flight, kesayangan Intulll 🦦🥳💃🏻
-            </div>
+        <!-- Footer -->
+        <div class="footer-card">
+            Safe flight, kesayangan Intulll 🦦🥳💃🏻
         </div>
     </div>
 
