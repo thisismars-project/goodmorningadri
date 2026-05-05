@@ -20,116 +20,105 @@
             background-image: url('BG.jpeg'); 
             background-repeat: repeat;
             background-size: 300px;
-            filter: brightness(0.9);
+            filter: brightness(0.85);
         }
 
         .container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px;
-            gap: 15px;
+            padding: 40px 20px;
+            gap: 20px;
         }
 
-        /* Navigasi Atas */
-        .nav-bar {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            width: 100%;
-            max-width: 650px;
-            padding: 12px 30px;
-            border-radius: 20px;
-            display: flex;
-            justify-content: space-between;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        /* Main Card Transparan */
+        /* Main Card Transparan - Efek Kaca */
         .main-card {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px); /* Support untuk Safari/iOS */
             border-radius: 30px;
-            padding: 30px;
-            max-width: 650px;
+            padding: 35px 25px;
+            max-width: 600px;
             width: 100%;
             text-align: center;
             box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
-        h1 { font-size: 2rem; margin: 10px 0; font-weight: 700; }
-        .sub { font-size: 1rem; margin-bottom: 20px; font-weight: 500; }
+        h1 { font-size: 1.8rem; margin: 10px 0; font-weight: 700; color: #1a1a1a; }
+        .sub { font-size: 0.95rem; margin-bottom: 25px; color: #444; }
 
-        /* Area Peta - Menggunakan Gambar Peta Hijau */
+        /* Area Peta - Link Baru yang Lebih Stabil */
         .map-wrapper {
             position: relative;
             width: 100%;
-            height: 280px;
+            height: 250px;
             margin: 20px 0;
-            background-image: url('https://i.ibb.co/L6vM8pY/indonesia-map-green.png'); /* Ilustrasi peta hijau mirip referensi */
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Indonesia_location_map.svg/1024px-Indonesia_location_map.svg.png');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
         }
 
-        /* Styling Kepala Tanpa Background/Border */
         .head-icon {
-            width: 70px; height: 70px;
+            width: 65px; height: 65px;
             object-fit: contain;
             position: absolute;
         }
 
         /* Jakarta & Intul */
-        .intul-loc { top: 70px; left: 15%; text-align: center; }
+        .intul-loc { top: 50px; left: 8%; text-align: center; position: absolute; }
         
         /* Container Terbang Adri (Pesawat + Kepala) */
         .adri-flight {
             position: absolute;
             display: flex;
             align-items: center;
-            top: 130px; left: 35%;
+            top: 130px; left: 30%;
             z-index: 10;
-            animation: flyPath 8s infinite ease-in-out;
+            animation: flyPath 7s infinite ease-in-out;
         }
 
         @keyframes flyPath {
             0% { transform: translate(0, 0); opacity: 0; }
             15% { opacity: 1; }
-            85% { transform: translate(250px, -40px); opacity: 1; }
-            100% { transform: translate(300px, -60px); opacity: 0; }
+            85% { transform: translate(250px, -50px); opacity: 1; }
+            100% { transform: translate(300px, -70px); opacity: 0; }
         }
 
-        .plane-img { width: 40px; margin-right: 5px; }
+        .plane-emoji { font-size: 2rem; margin-right: 5px; }
 
-        /* Label Kota Kecil */
         .city-label {
             display: block;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
-            margin-top: -5px;
+            color: #222;
+            margin-top: 2px;
         }
 
         /* Fun Facts Section */
         .facts-box {
             text-align: left;
-            padding: 0 20px;
-            margin-top: 20px;
+            padding: 0 10px;
+            margin-top: 25px;
         }
-        .facts-box h3 { font-size: 1rem; margin-bottom: 10px; }
-        .facts-list { list-style: none; padding: 0; font-size: 0.9rem; line-height: 1.6; }
-        .facts-list li { margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+        .facts-box h3 { font-size: 0.95rem; margin-bottom: 12px; font-weight: 700; }
+        .facts-list { list-style: none; padding: 0; font-size: 0.85rem; color: #333; }
+        .facts-list li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; line-height: 1.4; }
 
         /* Footer Box Terpisah */
         .footer-card {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             width: 100%;
-            max-width: 650px;
-            padding: 15px;
+            max-width: 600px;
+            padding: 18px;
             border-radius: 20px;
             text-align: center;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
     </style>
 </head>
@@ -138,14 +127,6 @@
     <div class="bg-fixed"></div>
 
     <div class="container">
-        <!-- Navigasi -->
-        <div class="nav-bar">
-            <span>Home</span>
-            <span>Gallery</span>
-            <span>Flights</span>
-            <span>About Us</span>
-        </div>
-
         <!-- Konten Utama -->
         <div class="main-card">
             <h1>Welcome aboard Pak Adri! 🚀</h1>
@@ -160,13 +141,13 @@
 
                 <!-- Pesawat & Adri Terbang -->
                 <div class="adri-flight">
-                    <img src="https://i.ibb.co/Vmq9LzX/plane-icon.png" class="plane-img">
+                    <span class="plane-emoji">✈️</span>
                     <img src="Adri%20Head.png" class="head-icon" style="position:relative; width: 60px; height: 60px;">
-                    <span class="city-label" style="position: absolute; bottom: -15px; width: 100px; left: 30px;">Surabaya</span>
+                    <span class="city-label" style="position: absolute; bottom: -18px; left: 35px; white-space: nowrap;">Surabaya</span>
                 </div>
 
                 <!-- Ambon Target -->
-                <div style="position: absolute; right: 15%; top: 45%; text-align: center;">
+                <div style="position: absolute; right: 12%; top: 40%; text-align: center;">
                     <span style="font-size: 2rem;">🏝️</span>
                     <span class="city-label">Ambon</span>
                 </div>
@@ -176,9 +157,9 @@
             <div class="facts-box">
                 <h3>fun facts and random reminders:</h3>
                 <ul class="facts-list">
-                    <li>📅 - Today marks 157 days kita bersama! Wow! You've survived WKWK</li>
-                    <li>🤌🏻 - I still love you the same</li>
-                    <li>💬 - ...maybe even moreee ❤️</li>
+                    <li>📅 &nbsp; Today marks 157 days kita bersama! Wow! You've survived WKWK</li>
+                    <li>🤌🏻 &nbsp; I still love you the same</li>
+                    <li>💬 &nbsp; ...maybe even moreee ❤️</li>
                 </ul>
             </div>
         </div>
