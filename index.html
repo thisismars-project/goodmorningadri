@@ -47,13 +47,12 @@
         h1 { font-size: 1.8rem; margin: 10px 0; font-weight: 700; color: #1a1a1a; }
         .sub { font-size: 0.95rem; margin-bottom: 25px; color: #444; }
 
-        /* AREA PETA: Gunakan file PETA.png yang kamu upload */
         .map-wrapper {
             position: relative;
             width: 100%;
             height: 250px;
             margin: 20px 0;
-            background-image: url('PETA.PNG'); /* Pastikan nama file sesuai di GitHub */
+            background-image: url('PETA.PNG'); /* Nama file asli kamu */
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -74,15 +73,15 @@
             50% { transform: rotate(8deg) translateY(-5px); }
         }
         
-        /* Posisi Jakarta di Peta Baru */
-        .jakarta-area { position: absolute; top: 110px; left: 18%; text-align: center; }
+        /* Posisi Jakarta tanpa tulisan */
+        .jakarta-area { position: absolute; top: 110px; left: 18%; }
 
-        /* Adri Terbang & Berhenti Pas di Ambon */
+        /* Adri Terbang & Berhenti Pas di Ambon (Jarak Diperpendek) */
         .adri-flight {
             position: absolute;
             display: flex;
             align-items: center;
-            top: 155px; left: 32%; /* Start Surabaya */
+            top: 155px; left: 32%; 
             z-index: 10;
             animation: flyToAmbon 5s forwards ease-out;
         }
@@ -90,19 +89,11 @@
         @keyframes flyToAmbon {
             0% { transform: translate(0, 0); opacity: 0; }
             15% { opacity: 1; }
-            /* Koordinat mendarat di pulau kecil Ambon pada peta */
-            100% { transform: translate(215px, -45px); opacity: 1; }
+            /* Mendarat di Ambon (Sudah diperpendek angkanya) */
+            100% { transform: translate(160px, -45px); opacity: 1; }
         }
 
         .plane-emoji { font-size: 1.8rem; margin-right: 5px; }
-
-        .city-label {
-            display: block;
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: #222;
-            margin-top: 2px;
-        }
 
         .facts-box {
             text-align: left;
@@ -138,10 +129,9 @@
             <p class="sub">Selamat pagi dan semangat bekerja hari ini!</p>
 
             <div class="map-wrapper">
-                <!-- Jakarta -->
+                <!-- Jakarta (Hanya Kepala) -->
                 <div class="jakarta-area">
                     <img src="Intul%20Head.png" class="head-icon intul-head-animate">
-                    <span class="city-label">Jakarta</span>
                 </div>
 
                 <!-- Adri Terbang -->
@@ -150,15 +140,9 @@
                     <img src="Adri%20Head.png" class="head-icon">
                 </div>
 
-                <!-- Surabaya Diam -->
-                <div style="position: absolute; top: 195px; left: 35%; text-align: center;">
-                    <span class="city-label">Surabaya</span>
-                </div>
-
-                <!-- Ambon Target -->
-                <div style="position: absolute; right: 18%; top: 48%; text-align: center;">
+                <!-- Ambon Target (Hanya Pulau) -->
+                <div style="position: absolute; right: 28%; top: 48%; text-align: center;">
                     <span style="font-size: 2rem;">🏝️</span>
-                    <span class="city-label">Ambon</span>
                 </div>
             </div>
 
